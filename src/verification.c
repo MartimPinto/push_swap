@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:00:20 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/08/18 17:11:16 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/08/31 16:52:11 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,7 @@ int	parser(int argc, char **argv)
 		write(2, "Error\n", 6);
 		return (1);
 	}
+	if (argc == 2)
+		free_array(args);
 	return (0);
 }
