@@ -6,13 +6,13 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 19:22:59 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/01 13:28:02 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:55:19 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../includes/push_swap.h"
 
-int	max(t_stack *lst)
+/*int	max(t_stack *lst)
 {
 	int	i;
 
@@ -24,7 +24,7 @@ int	max(t_stack *lst)
 		lst = lst->next;
 	}
 	return (i);
-}
+}*/
 
 int	min(t_stack *lst)
 {
@@ -33,7 +33,7 @@ int	min(t_stack *lst)
 	i = lst->nbr;
 	while(lst)
 	{
-		if (i < lst->nbr)
+		if (lst->nbr < i)
 			i = lst->nbr;
 		lst = lst->next;
 	}
@@ -65,24 +65,7 @@ void	create_stack(t_stack **stack, int argc, char **argv)
 		free_array(args);
 	}
 }
-void	print_stacks(t_stack *stack_a, t_stack *stack_b)
-{
-	t_stack	*current_a = stack_a;
-	t_stack	*current_b = stack_b;
-	
-	ft_printf("Stack A Contents:\n");
-	while (current_a)
-	{
-		ft_printf("%d\n", current_a->nbr);
-		current_a = current_a->next;
-	}
-    ft_printf("\nStack B Contents:\n");
-    while (current_b)
-	{
-		ft_printf("%d\n", current_b->nbr);
-		current_b = current_b->next;
-	}
-}
+
 int	check_sorted(t_stack *stack_a)
 {
 	int	i;
@@ -99,4 +82,35 @@ int	check_sorted(t_stack *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (1);
+}
+
+void	operations(t_stack **stack_a, t_stack **stack_b, char *op)
+{
+	if (ft_strncmp("sa", op, 3) == 0)
+		swap(stack_a);
+	else if (ft_strncmp("sb", op, 3) == 0)
+		swap(stack_b);
+	else if (ft_strncmp("pa", op, 3) == 0)
+		push(stack_b, stack_a);
+	else if (ft_strncmp("pb", op, 3) == 0)
+		push(stack_a, stack_b);
+	else if (ft_strncmp("ra", op, 3) == 0)
+		rotate(stack_a);
+	else if (ft_strncmp("rb", op, 3) == 0)
+		rotate(stack_b);
+	else if (ft_strncmp("rr", op, 3) == 0)
+		rotate_both(stack_a, stack_b);
+	else if (ft_strncmp("rra", op, 4) == 0)
+		reverse_rotate(stack_a);
+	else if (ft_strncmp("rrb", op, 4) == 0)
+		reverse_rotate(stack_b);
+	else if (ft_strncmp("rrr", op, 4) == 0)
+		reverse_rotate_both(stack_a, stack_b);
+	ft_printf("%s\n", op);
+}
+int	abs(int n)
+{
+	if (n < 0)
+		return (n * -1);
+	return (n);
 }

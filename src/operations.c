@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/30 12:09:22 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/08/31 16:12:23 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/06 17:14:31 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	swap(t_stack **stack)
 {
 	t_stack	*first;
 	t_stack	*second;
+	int	tmp;
 
 	first = *stack;
 	second = first->next;
@@ -25,6 +26,9 @@ void	swap(t_stack **stack)
 	second->next = first;
 	first->prev = second;
 	second->prev = NULL;
+	tmp = first->index;
+	first->index = second->index;
+	second->index = tmp;
 	ft_dlstadd_front(stack, second);
 	*stack = second;
 }
@@ -42,6 +46,11 @@ void	rotate(t_stack **stack)
 	tmp->next = NULL;
 	tail->next = tmp;
 }
+void	rotate_both(t_stack **stack_a, t_stack **stack_b)
+{
+	rotate(stack_a);
+	rotate(stack_b);
+}
 
 void	reverse_rotate(t_stack **stack)
 {
@@ -56,6 +65,11 @@ void	reverse_rotate(t_stack **stack)
 	node = ft_dlstlast(*stack);
 	ft_dlstadd_front(stack, node);
 	tmp->next = NULL;
+}
+void	reverse_rotate_both(t_stack	**stack_a, t_stack **stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
 }
 
 void	push(t_stack **stack1, t_stack **stack2)
