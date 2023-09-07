@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/31 12:36:43 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/06 18:59:58 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/07 17:09:20 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
 	*stack_b = NULL;
 	create_stack(stack_a, argc, argv);
 	stack_size = ft_dlstsize(*stack_a);
-	assign_index(stack_a, stack_size);
+	assign_index(stack_a, stack_size + 1);
 	push_swap(stack_a, stack_b, stack_size);
 	free_all(stack_a, stack_b);
     return (0);

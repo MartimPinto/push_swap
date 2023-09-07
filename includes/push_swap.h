@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 13:30:15 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/06 16:08:05 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/07 17:05:33 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,7 @@ void	sort5(t_stack **stack_a, t_stack **stack_b);
 void push_min_b(t_stack **stack_a, t_stack **stack_b);
 
 //position//
-void	get_position(t_stack	**stack);
 int	lowest_index_pos(t_stack	**stack);
-int	get_target(t_stack	**stack_a, int	b_idx, int tgt_index, int tgt_pos);
 void	get_target_pos(t_stack **stack_a, t_stack **stack_b);
 
 //cost//

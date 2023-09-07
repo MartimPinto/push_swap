@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 14:15:14 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/01 12:23:08 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/07 17:16:40 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 int	ft_dlstsize(t_stack *lst)
 {
 	int	i;
-	t_stack	*current;
 
 	i = 0;
-	current = lst;
-	while (current)
+	if (!lst)
+		return (0);
+	while (lst)
 	{
+		lst = lst->next;
 		i++;
-		current = current->next;
 	}
 	return (i);
 }
@@ -81,5 +81,10 @@ t_stack	*ft_dlstnew(int nbr)
 	node->nbr = nbr;
 	node->next = NULL;
 	node->prev = NULL;
+	node->index = 0;
+	node->pos = -1;
+	node->target_pos = -1;
+	node->cost_a = -1;
+	node->cost_b = -1;
 	return (node);
 }

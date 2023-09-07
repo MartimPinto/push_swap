@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:40:49 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/06 18:52:10 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/07 16:00:25 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,12 @@ static void do_ra(t_stack **stack_a, int *cost)
 {
 	while (*cost)
 	{
-		if (cost > 0)
+		if (*cost > 0)
 		{
 			operations(stack_a, NULL, "ra");
 			(*cost)--;
 		}
-		else if (cost < 0)
+		else if (*cost < 0)
 		{
 			operations(stack_a, NULL, "rra");
 			(*cost)++;
@@ -50,14 +50,14 @@ static void do_rb(t_stack **stack_b, int *cost)
 {
 	while (*cost)
 	{
-		if (cost > 0)
+		if (*cost > 0)
 		{
-			operations(stack_b, NULL, "rb");
+			operations(NULL, stack_b, "rb");
 			(*cost)--;
 		}
-		else if (cost > 0)
+		else if (*cost < 0)
 		{
-			operations(stack_b, NULL, "rrb");
+			operations(NULL, stack_b, "rrb");
 			(*cost)++;
 		}
 	}
@@ -65,11 +65,13 @@ static void do_rb(t_stack **stack_b, int *cost)
 void	move(t_stack **stack_a, t_stack **stack_b, int cost_a, int cost_b)
 {
 	if (cost_a < 0 && cost_b < 0)
-		do_rrr(stack_a, stack_a, &cost_a, &cost_b);
+		do_rrr(stack_a, stack_b, &cost_a, &cost_b);
 	else if (cost_a > 0 && cost_b > 0)
-		do_rr(stack_a, stack_a, &cost_a, &cost_b);
+		do_rr(stack_a, stack_b, &cost_a, &cost_b);
+	//ft_printf("cost a: %d\n", cost_a);
+	//clearft_printf("cost b: %d\n", cost_b);
 	do_ra(stack_a, &cost_a);
 	do_rb(stack_b, &cost_b);
-	operations(stack_b, stack_a, "pa");
+	operations(stack_a, stack_b, "pa");
 }
 
