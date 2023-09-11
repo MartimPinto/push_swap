@@ -6,7 +6,7 @@
 #    By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 15:57:58 by mcarneir          #+#    #+#              #
-#    Updated: 2023/09/06 16:02:52 by mcarneir         ###   ########.fr        #
+#    Updated: 2023/09/11 13:13:09 by mcarneir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,7 @@ SRC =	src/utils.c \
 		src/verification.c \
 		src/operations.c \
 		src/operations2.c \
+		src/rotate_stacks.c \
 		src/free.c \
 		src/small_sort.c \
 		src/big_sort.c \

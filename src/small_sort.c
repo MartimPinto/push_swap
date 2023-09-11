@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/01 11:36:09 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/06 16:54:15 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:15:46 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	sort2(t_stack **stack_a)
 {
 	t_stack	*node;
-	
+
 	if (check_sorted(*stack_a) != 0)
 		return ;
 	node = *stack_a;
@@ -29,7 +29,7 @@ void	sort2(t_stack **stack_a)
 void	sort3(t_stack **stack_a)
 {
 	t_stack	*node;
-	
+
 	node = *stack_a;
 	if (node->next->next->nbr > node->next->nbr)
 	{
@@ -39,10 +39,10 @@ void	sort3(t_stack **stack_a)
 			operations(stack_a, NULL, "ra");
 	}
 	else
-	{ 
+	{
 		if (node->next->next->nbr < node->nbr)
 		{
-			if(node->nbr > node->next->nbr)
+			if (node->nbr > node->next->nbr)
 				operations(stack_a, NULL, "sa");
 			operations(stack_a, NULL, "rra");
 		}
@@ -53,17 +53,17 @@ void	sort3(t_stack **stack_a)
 		}
 	}
 }
-void push_min_b(t_stack **stack_a, t_stack **stack_b)
+
+void	push_min_b(t_stack **stack_a, t_stack **stack_b)
 {
-	int min_nbr;
-	
+	int	min_nbr;
+
 	min_nbr = min(*stack_a);
-	
 	while ((*stack_a)->nbr != min_nbr)
 	{
 		if ((*stack_a)->nbr != min_nbr 
 			&& (*stack_a)->next->nbr != min_nbr)
-				operations(stack_a, NULL, "rra");
+			operations(stack_a, NULL, "rra");
 		else
 			operations(stack_a, NULL, "ra");
 	}

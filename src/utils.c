@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 14:15:14 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/07 17:16:40 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:28:33 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,33 +38,33 @@ t_stack	*ft_dlstlast(t_stack *lst)
 	return (lst);
 }
 
-void *ft_dlstadd_front(t_stack **lst, t_stack *new)
+void	*ft_dlstadd_front(t_stack **lst, t_stack *new)
 {
 	if (!new)
-		return NULL;
+		return (NULL);
 	if (!lst)
 	{
 		*lst = new;
-		return *lst;
+		return (*lst);
 	}
 	new->next = *lst;
 	new->prev = NULL;
 	if (*lst)
 		(*lst)->prev = new;
 	*lst = new;
-	return *lst;
+	return (*lst);
 }
 
 void	ft_dlstadd_back(t_stack **lst, t_stack *new)
 {
 	t_stack	*replace;
-	
+
 	if (!new)
 		return ;
 	if (!*lst)
 	{
 		*lst = new;
-		return;
+		return ;
 	}
 	replace = ft_dlstlast(*lst);
 	replace->next = new;
@@ -73,7 +73,7 @@ void	ft_dlstadd_back(t_stack **lst, t_stack *new)
 
 t_stack	*ft_dlstnew(int nbr)
 {
-	t_stack *node;
+	t_stack	*node;
 
 	node = (t_stack *)malloc(sizeof(t_stack));
 	if (!node)

@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 14:11:06 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/07 17:09:46 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:16:54 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	push_to_b_till_3(t_stack **stack_a, t_stack **stack_b)
 	int	stack_size;
 	int	pushed;
 	int	i;
-	
+
 	stack_size = ft_dlstsize(*stack_a);
 	pushed = 0;
 	i = 0;
@@ -38,6 +38,7 @@ static void	push_to_b_till_3(t_stack **stack_a, t_stack **stack_b)
 		pushed++;
 	}
 }
+
 static void	shift_stack(t_stack **stack_a)
 {
 	int	lowest_pos;
@@ -65,9 +66,9 @@ static void	shift_stack(t_stack **stack_a)
 
 void	sort(t_stack **stack_a, t_stack	**stack_b)
 {
-	
 	push_to_b_till_3(stack_a, stack_b);
-	small_sort(stack_a, stack_b);
+	if (check_sorted(*stack_a) == 0)
+		small_sort(stack_a, stack_b);
 	while (*stack_b)
 	{
 		get_target_pos(stack_a, stack_b);

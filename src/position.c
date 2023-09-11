@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 11:11:17 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/07 17:26:40 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:26:55 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	get_position(t_stack **stack)
 {
 	t_stack	*current;
-	int	i;
+	int		i;
 
 	current = *stack;
 	i = 0;
@@ -30,8 +30,8 @@ static void	get_position(t_stack **stack)
 int	lowest_index_pos(t_stack	**stack)
 {
 	t_stack	*current;
-	int	lowest_index;
-	int	lowest_pos;
+	int		lowest_index;
+	int		lowest_pos;
 
 	current = *stack;
 	lowest_index = INT_MAX;
@@ -49,7 +49,7 @@ int	lowest_index_pos(t_stack	**stack)
 	return (lowest_pos);
 }
 
-static int	get_target(t_stack **stack_a, int	b_idx, int tgt_index, int tgt_pos)
+static int	get_target(t_stack **stack_a, int b_idx, int tgt_index, int tgt_pos)
 {
 	t_stack	*current;
 
@@ -81,7 +81,8 @@ static int	get_target(t_stack **stack_a, int	b_idx, int tgt_index, int tgt_pos)
 void	get_target_pos(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*current_b;
-	int	tgt_pos;
+	int		tgt_pos;
+
 	current_b = *stack_b;
 	get_position(stack_a);
 	get_position(stack_b);

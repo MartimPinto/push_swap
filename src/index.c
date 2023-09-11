@@ -6,19 +6,19 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 12:42:22 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/07 17:08:07 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:20:57 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	assign_index(t_stack **stack_a, int	stack_size)
+void	assign_index(t_stack	**stack_a, int stack_size)
 {
 	t_stack	*current;
 	t_stack	*highest;
-	int	value;
+	int		value;
 
-	while(--stack_size > 0)
+	while (--stack_size > 0)
 	{
 		current = *stack_a;
 		value = INT_MIN;

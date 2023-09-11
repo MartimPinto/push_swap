@@ -6,32 +6,18 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 19:22:59 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/07 17:07:41 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:30:34 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../includes/push_swap.h"
-
-/*int	max(t_stack *lst)
-{
-	int	i;
-
-	i = lst->nbr;
-	while(lst)
-	{
-		if (lst->nbr > i)
-			i = lst->nbr;
-		lst = lst->next;
-	}
-	return (i);
-}*/
+#include "../includes/push_swap.h"
 
 int	min(t_stack *lst)
 {
 	int	i;
-	
+
 	i = lst->nbr;
-	while(lst)
+	while (lst)
 	{
 		if (lst->nbr < i)
 			i = lst->nbr;
@@ -39,11 +25,12 @@ int	min(t_stack *lst)
 	}
 	return (i);
 }
+
 void	create_stack(t_stack **stack, int argc, char **argv)
 {
-	t_stack *node;
+	t_stack	*node;
 	char	**args;
-	int	i;
+	int		i;
 
 	i = 0;
 	*stack = NULL;
@@ -71,7 +58,7 @@ int	check_sorted(t_stack *stack_a)
 	int	i;
 
 	if (stack_a == NULL)
-		return (1);	
+		return (1);
 	i = stack_a->nbr;
 	stack_a = stack_a->next;
 	while (stack_a)
@@ -87,9 +74,9 @@ int	check_sorted(t_stack *stack_a)
 void	operations(t_stack **stack_a, t_stack **stack_b, char *op)
 {
 	if (ft_strncmp("sa", op, 3) == 0)
-		swap(stack_a);
+		swap(*stack_a);
 	else if (ft_strncmp("sb", op, 3) == 0)
-		swap(stack_b);
+		swap(*stack_b);
 	else if (ft_strncmp("pa", op, 3) == 0)
 		push(stack_b, stack_a);
 	else if (ft_strncmp("pb", op, 3) == 0)
@@ -108,6 +95,7 @@ void	operations(t_stack **stack_a, t_stack **stack_b, char *op)
 		reverse_rotate_both(stack_a, stack_b);
 	ft_printf("%s\n", op);
 }
+
 int	abs(int n)
 {
 	if (n < 0)

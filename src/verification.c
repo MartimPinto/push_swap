@@ -6,7 +6,7 @@
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/16 11:00:20 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/08/31 16:52:11 by mcarneir         ###   ########.fr       */
+/*   Updated: 2023/09/11 13:31:25 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	check_nbr(char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
@@ -27,7 +27,7 @@ int	check_nbr(char *str)
 			return (1);
 		i++;
 	}
-	return (0);	
+	return (0);
 }
 
 int	check_repeat(char **str)
@@ -46,7 +46,7 @@ int	check_repeat(char **str)
 			j++;
 		}
 		i++;
-	}	
+	}
 	return (0);
 }
 
@@ -71,7 +71,7 @@ int	check_value(char **str, int i)
 int	parser(int argc, char **argv)
 {
 	char	**args;
-	int	i;
+	int		i;
 
 	i = 0;
 	if (argc == 2)

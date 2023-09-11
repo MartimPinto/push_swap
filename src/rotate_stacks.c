@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   rotate_stacks.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/18 15:14:23 by mcarneir          #+#    #+#             */
-/*   Updated: 2023/09/11 14:43:13 by mcarneir         ###   ########.fr       */
+/*   Created: 2023/09/11 13:11:41 by mcarneir          #+#    #+#             */
+/*   Updated: 2023/09/11 13:12:26 by mcarneir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/push_swap.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+void	rotate_both(t_stack **stack_a, t_stack **stack_b)
 {
-	int	i;
+	rotate(stack_a);
+	rotate(stack_b);
+}
 
-	i = 0;
-	while ((s1[i] != '\0' || s2[i] != '\0') && s1[i] == s2[i])
-	{
-		i++;
-	}
-	return (s1[i] - s2[i]);
+void	reverse_rotate_both(t_stack	**stack_a, t_stack **stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
 }
