@@ -6,12 +6,12 @@
 #    By: mcarneir <mcarneir@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/19 15:57:58 by mcarneir          #+#    #+#              #
-#    Updated: 2023/09/11 13:13:09 by mcarneir         ###   ########.fr        #
+#    Updated: 2023/09/20 12:41:10 by mcarneir         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 RM = rm -f
 
 NAME = push_swap
